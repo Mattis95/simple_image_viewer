@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.js"></script>
+    <title>Simple Image Viewer</title>
+  </head>
+  <body>
+    <h1>Simple Image Viewer</h1>
+    <form name="dropdown_img" method="POST">
+      <label for="Images">Choose image</label>
+        <select name="images" data-live-search="true" class="selectpicker">
+          {% for image_name in img_list %}
+            <option value="{{ image_name }}" SELECTED>{{ image_name }}</option>
+          {% endfor %}     
+        </select>
+        <input type="submit">
+    </form>
+    <div>
+      {% if img_name!=undefined %}
+      <h2>Image: {{ img_name }}</h2>
+      {% else %}
+      <p></p>
+      {% endif %}
+        {% if img_data!=undefined %}
+        <div>
+          <img src="{{ img_data }}">
+        </div>
+        {% endif %}
+    </div>
+	</form>
+  </body>
+</html>
