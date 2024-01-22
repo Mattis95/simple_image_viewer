@@ -20,6 +20,8 @@
           {% endfor %}     
         </select>
         <input type="submit">
+        <input type="submit" name="Previous" value="Previous"/>
+        <input type="submit" name="Next" value="Next"/> 
     </form>
     <div>
       {% if img_name!=undefined %}
@@ -31,7 +33,11 @@
         <div>
           <img src="{{ img_data }}">
         </div>
-        {% endif %}
+        <form name ="prev" method="post" action="/">
+        <input type="submit" name="Previous" value="Previous"/>
+        <form name="next" method="post" action="/">
+        <input type="submit" name="Next" value="Next"/>
+       {% endif %}
     </div>
 	</form>
   </body>

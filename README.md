@@ -1,5 +1,5 @@
 # simple_image_viewer
-Code for a simple image viewer, based on Flask.
+Code for a simple image viewer, based on Flask. Becomes very slow with to many images (>10000)
 Depends only on Flask, so run:
 ```
 pip install flask
