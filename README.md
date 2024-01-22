@@ -8,3 +8,4 @@ Then run the app:
 ```
 python main.py --port 5000 --path /path/to/image/folder/
 ```
+Add the```--external``` option to add access from different devices

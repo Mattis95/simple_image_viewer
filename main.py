@@ -26,12 +26,14 @@ def home_page():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--port", help="Port of flask application", default=8001)
-    parser.add_argument("--path", help="path to image dir", default="./")
+    parser.add_argument("--port", help="Port of flask application", type=int, default=8001)
+    parser.add_argument("--path", help="Path to image dir", type=str, default="./")
+    parser.add_argument("--external", help="Whether external access is allowed", action=argparse.BooleanOptionalAction, default=False)
     args = parser.parse_args()
     app.static_folder = args.path
     img_list = []
     for file in os.listdir(args.path):
         if file.endswith(".jpg") or file.endswith(".png") or file.endswith(".avif"):
             img_list.append(file)
-    app.run(debug=True, host='0.0.0.0', port=args.port)
+    host = '0.0.0.0' if args.external else '127.0.0.1'
+    app.run(debug=True, host=host, port=args.port)

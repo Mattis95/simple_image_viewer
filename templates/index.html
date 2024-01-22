@@ -16,7 +16,7 @@
       <label for="Images">Choose image</label>
         <select name="images" data-live-search="true" class="selectpicker">
           {% for image_name in img_list %}
-            <option value="{{ image_name }}" {{ image_name }} ></option>
+            <option value="{{ image_name }}" {% if image_name==img_name %}SELECTED {% endif %}>{{ image_name }}</option>
           {% endfor %}     
         </select>
         <input type="submit" name="Open">
