@@ -16,10 +16,10 @@
       <label for="Images">Choose image</label>
         <select name="images" data-live-search="true" class="selectpicker">
           {% for image_name in img_list %}
-            <option value="{{ image_name }}" SELECTED>{{ image_name }}</option>
+            <option value="{{ image_name }}" {{ image_name }} ></option>
           {% endfor %}     
         </select>
-        <input type="submit">
+        <input type="submit" name="Open">
         <input type="submit" name="Previous" value="Previous"/>
         <input type="submit" name="Next" value="Next"/> 
     </form>
@@ -33,10 +33,6 @@
         <div>
           <img src="{{ img_data }}">
         </div>
-        <form name ="prev" method="post" action="/">
-        <input type="submit" name="Previous" value="Previous"/>
-        <form name="next" method="post" action="/">
-        <input type="submit" name="Next" value="Next"/>
        {% endif %}
     </div>
 	</form>
